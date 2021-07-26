@@ -8,6 +8,7 @@ object LibDependencies {
   val hmrcFrontendVersion: String      = "2.1.0"
   val playFrontendGovukVersion: String = "0.80.0"
   val playLanguageVersion: String      = "5.0.0"
+  val bootstrapVersion: String         = "5.8.0-SNAPSHOT"
 
   val compile: Seq[ModuleID] = dependencies(
     shared = Seq(
@@ -18,16 +19,19 @@ object LibDependencies {
       "org.scalaj"         %% "scalaj-http"     % "2.4.2"
     ),
     play26 = Seq(
-      "uk.gov.hmrc" %% "play-language"       % s"$playLanguageVersion-play-26",
-      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-26"
+      "uk.gov.hmrc" %% "play-language"              % s"$playLanguageVersion-play-26",
+      "uk.gov.hmrc" %% "play-frontend-govuk"        % s"$playFrontendGovukVersion-play-26",
+      "uk.gov.hmrc" %% "bootstrap-frontend-play-26" % bootstrapVersion
     ),
     play27 = Seq(
-      "uk.gov.hmrc" %% "play-language"       % s"$playLanguageVersion-play-27",
-      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-27"
+      "uk.gov.hmrc" %% "play-language"              % s"$playLanguageVersion-play-27",
+      "uk.gov.hmrc" %% "play-frontend-govuk"        % s"$playFrontendGovukVersion-play-27",
+      "uk.gov.hmrc" %% "bootstrap-frontend-play-27" % bootstrapVersion
     ),
     play28 = Seq(
-      "uk.gov.hmrc" %% "play-language"       % s"$playLanguageVersion-play-28",
-      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-28"
+      "uk.gov.hmrc" %% "play-language"              % s"$playLanguageVersion-play-28",
+      "uk.gov.hmrc" %% "play-frontend-govuk"        % s"$playFrontendGovukVersion-play-28-SNAPSHOT",
+      "uk.gov.hmrc" %% "bootstrap-frontend-play-28" % bootstrapVersion
     )
   )
 
