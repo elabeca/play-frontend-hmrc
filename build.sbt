@@ -21,6 +21,7 @@ lazy val root = Project(libName, file("."))
     TwirlKeys.templateImports := templateImports,
     PlayCrossCompilation.playCrossCompilationSettings,
     isPublicArtefact := true,
+    resolvers += Resolver.mavenLocal,
     // ***************
     // Use the silencer plugin to suppress warnings from unused imports in compiled twirl templates
     scalacOptions += "-P:silencer:pathFilters=views;routes",

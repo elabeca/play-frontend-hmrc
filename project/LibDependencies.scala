@@ -5,9 +5,10 @@ import play.sbt.PlayImport.ws
 import sbt.ModuleID
 
 object LibDependencies {
-  val hmrcFrontendVersion: String      = "2.0.0"
+  val hmrcFrontendVersion: String      = "2.1.0"
   val playFrontendGovukVersion: String = "0.80.0"
   val playLanguageVersion: String      = "5.0.0"
+  val playSessionVersion: String       = "0.84.0"
 
   val compile: Seq[ModuleID] = dependencies(
     shared = Seq(
@@ -19,15 +20,18 @@ object LibDependencies {
     ),
     play26 = Seq(
       "uk.gov.hmrc" %% "play-language"       % s"$playLanguageVersion-play-26",
-      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-26"
+      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-26",
+      "uk.gov.hmrc" %% "play-session"        % s"$playSessionVersion-play-26-SNAPSHOT"
     ),
     play27 = Seq(
       "uk.gov.hmrc" %% "play-language"       % s"$playLanguageVersion-play-27",
-      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-27"
+      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-27",
+      "uk.gov.hmrc" %% "play-session"        % s"$playSessionVersion-play-27-SNAPSHOT"
     ),
     play28 = Seq(
       "uk.gov.hmrc" %% "play-language"       % s"$playLanguageVersion-play-28",
-      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-28"
+      "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-28",
+      "uk.gov.hmrc" %% "play-session"        % s"$playSessionVersion-play-28-SNAPSHOT"
     )
   )
 
