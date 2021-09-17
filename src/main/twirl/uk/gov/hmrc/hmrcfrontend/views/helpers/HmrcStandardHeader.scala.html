@@ -16,7 +16,7 @@
 
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcHeader
 @import uk.gov.hmrc.hmrcfrontend.views.Aliases.{Cy, En, Header, UserResearchBanner}
-@import uk.gov.hmrc.govukfrontend.views.Aliases.PhaseBanner
+@import uk.gov.hmrc.govukfrontend.views.Aliases.{PhaseBanner, Content, Empty}
 
 @this(hmrcHeader: HmrcHeader)
 
@@ -26,7 +26,8 @@
   signOutUrl: Option[String] = None,
   userResearchBanner: Option[UserResearchBanner] = None,
   phaseBanner: Option[PhaseBanner] = None,
-  displayHmrcBanner: Boolean = false
+  displayHmrcBanner: Boolean = false,
+  additionalBannersBlock: Content = Empty
 )(implicit messages: Messages, request: RequestHeader)
 @defining("service.name") { serviceNameKey =>
   @defining(if(messages.isDefinedAt(serviceNameKey)) Some(messages(serviceNameKey)) else None) { serviceNameFromMessages =>
@@ -39,7 +40,8 @@
       assetsPath = uk.gov.hmrc.hmrcfrontend.controllers.routes.Assets.at("govuk/images").url,
       userResearchBanner = userResearchBanner,
       phaseBanner = phaseBanner,
-      displayHmrcBanner = displayHmrcBanner
+      displayHmrcBanner = displayHmrcBanner,
+      additionalBannersBlock = additionalBannersBlock
     ))
   }
 }
