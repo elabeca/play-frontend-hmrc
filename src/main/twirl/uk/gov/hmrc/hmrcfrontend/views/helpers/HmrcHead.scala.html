@@ -14,12 +14,13 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTrackingConsentSnippet
+@import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcTrackingConsentSnippet, HmrcAppBanners}
 @import uk.gov.hmrc.hmrcfrontend.config.AssetsConfig
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.appbanners.AppBanners
 
-@this(hmrcTrackingConsentSnippet: HmrcTrackingConsentSnippet, assetsConfig: AssetsConfig)
+@this(hmrcTrackingConsentSnippet: HmrcTrackingConsentSnippet, assetsConfig: AssetsConfig, hmrcAppBanners: HmrcAppBanners)
 
-@(headBlock: Option[Html] = None, nonce: Option[String] = None)(implicit request: RequestHeader, messages: Messages)
+@(headBlock: Option[Html] = None, nonce: Option[String] = None, appBanners: Option[AppBanners] = None)(implicit request: RequestHeader, messages: Messages)
 @hmrcTrackingConsentSnippet(nonce)
 <!--[if lte IE 8]>
 <script src="@assetsConfig.html5ShivJsUrl"></script>
@@ -28,4 +29,7 @@
 <!--[if gt IE 8]><!-->
 <link href="@assetsConfig.hmrcFrontendCssUrl" media="all" rel="stylesheet" type="text/css"@nonce.map {n=> nonce="@n"} />
 <!--<![endif]-->
+@appBanners.map { banners =>
+ @hmrcAppBanners(banners)
+}
 @headBlock

@@ -29,6 +29,7 @@
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.pagelayout.PageLayout
 @import uk.gov.hmrc.govukfrontend.views.html.components.FixedWidthPageLayout
 @import uk.gov.hmrc.hmrcfrontend.views.Aliases.Header
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.appbanners.AppBanners
 
 @this(
         govukLayout: GovukLayout,
@@ -60,7 +61,8 @@
         mainContentLayout: Option[Html => Html] = Some(defaultMainContent(_)),
         additionalBannersBlock: Option[Html] = None,
         pageLayout: Option[PageLayout => Html] = Some(fixedWidthPageLayout(_)),
-        headerContainerClasses: String = Header.defaultObject.containerClasses
+        headerContainerClasses: String = Header.defaultObject.containerClasses,
+        appBanners: Option[AppBanners] = None
 )(contentBlock: Html)(implicit request: RequestHeader, messages: Messages)
 
 @headerBlock = {
@@ -91,7 +93,7 @@
 
 @govukLayout(
     pageTitle = pageTitle,
-    headBlock = Some(hmrcHead(nonce = nonce, headBlock = additionalHeadBlock)),
+    headBlock = Some(hmrcHead(nonce = nonce, headBlock = additionalHeadBlock, appBanners = appBanners)),
     headerBlock = Some(headerBlock),
     scriptsBlock = Some(hmrcScripts(nonce = nonce, scriptsBlock = additionalScriptsBlock)),
     beforeContentBlock = Some(beforeContent),
