@@ -18,13 +18,10 @@
 
 @this()
 
-@(appBanners: AppBanners = AppBanners(IosSmartAppBanner()))(implicit messages: Messages)
+@(appBanners: AppBanners = AppBanners())(implicit messages: Messages)
 
-@iosSmartAppBanner = {
-  @appBanners.iosSmartAppBanner.url match {
-    case Some(url) => {<meta name="apple-itunes-app" content="app-id=514561561, app-argument=@url">}
-    case None => {<meta name="apple-itunes-app" content="app-id=514561561">}
-  }
+@androidNativeInstallBanner = {
+  <link rel="manifest" href="manifest.json" />
 }
 
-@iosSmartAppBanner
+@androidNativeInstallBanner

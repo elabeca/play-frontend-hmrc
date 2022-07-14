@@ -16,6 +16,6 @@
 
 package uk.gov.hmrc.hmrcfrontend.views.viewmodels.appbanners
 
-case class AppBanners(iosSmartAppBanner: IosSmartAppBanner = IosSmartAppBanner())
+case class AppBanners(androidNativeAppInstall: AndroidNativeAppInstall = AndroidNativeAppInstall())
 
-case class IosSmartAppBanner(url: Option[String] = None)
+case class AndroidNativeAppInstall()
