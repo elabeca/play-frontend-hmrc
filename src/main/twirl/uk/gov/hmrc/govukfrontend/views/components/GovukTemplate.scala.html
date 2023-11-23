@@ -71,7 +71,7 @@
     <meta property="og:image" content="@calculateAssetPath(assetPath, "images/govuk-opengraph-image.png")">
   </head>
   <body class="govuk-template__body @bodyClasses"@toAttributes(bodyAttributes)>
-    <script @CSPNonce.attr>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+      <script @CSPNonce.attr>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     @bodyStart
 
     @skipLinkBlock.getOrElse {

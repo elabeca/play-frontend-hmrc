@@ -19,6 +19,7 @@ lazy val root = (project in file("."))
     libraryDependencies ++= LibDependencies(),
     TwirlKeys.templateImports := templateImports,
     PlayCrossCompilation.playCrossCompilationSettings,
+    resolvers += Resolver.mavenLocal,
     isPublicArtefact := true,
     // ***************
     // Use the silencer plugin to suppress warnings from unused imports in compiled twirl templates
